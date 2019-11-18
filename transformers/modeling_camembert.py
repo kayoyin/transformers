@@ -21,6 +21,7 @@ from __future__ import (absolute_import, division, print_function,
 import logging
 
 from .modeling_roberta import RobertaModel, RobertaForMaskedLM, RobertaForSequenceClassification, RobertaForMultipleChoice
+from .modeling_bert import BertForQuestionAnswering
 from .configuration_camembert import CamembertConfig
 from .file_utils import add_start_docstrings
 
@@ -253,5 +254,9 @@ class CamembertForMultipleChoice(RobertaForMultipleChoice):
         loss, classification_scores = outputs[:2]
 
     """
+    config_class = CamembertConfig
+    pretrained_model_archive_map = CAMEMBERT_PRETRAINED_MODEL_ARCHIVE_MAP
+
+class CamembertForQuestionAnswering(BertForQuestionAnswering):
     config_class = CamembertConfig
     pretrained_model_archive_map = CAMEMBERT_PRETRAINED_MODEL_ARCHIVE_MAP
